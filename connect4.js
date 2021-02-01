@@ -32,11 +32,11 @@ function makeHtmlBoard() {
   // get "htmlBoard" variable from the item in HTML w/ID of "board"
   const htmlBoard = document.getElementById('board');
   // create the top table row where the players will select which column to place their game piece
-  var top = document.createElement("tr");
+  const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
   // dynamically set the number of cells in the row
-  for (var x = 0; x < WIDTH; x++) {
+  for (let x = 0; x < WIDTH; x++) {
     var headCell = document.createElement("td");
     headCell.setAttribute("id", x);
     top.append(headCell);
@@ -44,9 +44,9 @@ function makeHtmlBoard() {
   htmlBoard.append(top);
 
   // Dyanamically create the html gameboard, with each cell having an id equal to its y, x coordinates
-  for (var y = 0; y < HEIGHT; y++) {
+  for (let y = 0; y < HEIGHT; y++) {
     const row = document.createElement("tr");
-    for (var x = 0; x < WIDTH; x++) {
+    for (let x = 0; x < WIDTH; x++) {
       const cell = document.createElement("td");
       cell.setAttribute("id", `${y}-${x}`);
       row.append(cell);
@@ -86,10 +86,8 @@ function handleClick(evt) {
   // get x from ID of clicked cell
   const x = +evt.target.id;
   
-
-
   // get next spot in column (if none, ignore click)
-  var y = findSpotForCol(x);
+  const y = findSpotForCol(x);
   if (y === null) {
     return;
   }
@@ -130,7 +128,10 @@ function checkForWin() {
     );
   }
 
-  // TODO: read and understand this code. Add comments to help you.
+  // in this section the four possible win conditions are tested for every position on the board
+  // as defined some of the win conditions inclue positions that extend beyond the board
+  // these positions are ruled out by the _wins function
+  // if any of the possible win conditions resolve to true the current player won the game.
 
   for (var y = 0; y < HEIGHT; y++) {
     for (var x = 0; x < WIDTH; x++) {
