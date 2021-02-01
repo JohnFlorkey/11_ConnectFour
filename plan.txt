@@ -1,0 +1,37 @@
+Step One
+HTML
+* The grid should be very well defined, probably a table
+* The size of the cells could scale with the window, but the cells cannot flow onto other rows
+* Use data attributes or classes to control white/red/blue
+* Title/instructions
+
+CSS
+* Use classes to control white/red/blue
+* Possibly some animation
+* Provide a background
+
+JS
+* Determine the lowest unoccupied cell in a column
+* Check for winning condition
+* Set the class/attribute for color
+* Dynamically setup the board
+* Track the state of the gameboard 
+    - a map may be a good structure for tracking gameboard state
+    - {Column (0-6), Row (0-5), state (white/red/blue)}
+* Flow
+    - Setup/reset the board
+    - Let players start the game
+    - Announce player 1/2 turn
+    - Player selects column for their move
+    - Determine column selected from click event
+    - Determine the lowest available row
+        - Return message if no available row
+        - Player selects again
+    - Update the gameboard in memory
+    - Update the gameboard visually
+    - Check for win condition
+    - announce win condition
+    - No further moves can be made
+
+Step 2
+* Might be able to convert some of the for loops to foreach or for of
