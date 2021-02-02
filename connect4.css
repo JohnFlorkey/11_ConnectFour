@@ -13,9 +13,20 @@
   margin: 5px;
   width: 80%;
   height: 80%;
+  animation-duration: 1s;
+  animation-name: fall;
 }
 
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+@keyframes fall {
+  from {
+    margin-top: -1200%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+
+/* make pieces red/blue,  depending on player 1/2 piece */
 .p1 {
   background-color: blue;
 }
